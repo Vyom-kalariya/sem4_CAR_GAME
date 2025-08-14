@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.content {
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.btn {
+    color: #FFF;
+    position: relative;
+    overflow: hidden;
+    background-color: #444;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.btn:hover::before {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.btn:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn:hover {
+    background-color: #333;
+    color: #FFF;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+#car-display {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#car-image {
+    max-width: 500px;
+    height: auto;
+}
